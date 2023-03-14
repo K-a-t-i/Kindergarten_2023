@@ -1,0 +1,31 @@
+{% extends "layout.html" %}   <!--you can call index.html how ever you want, its only for simplicity -->
+
+{% block body %}
+
+<h1>Register</h1>
+
+    <form action="/register" method="post">
+    
+        <input autocomplete="off" autofocus name="email" placeholder="Email" type="email"> <!--ask user for input in textfield, name="name": humans name; type="text" type of that box will be text-->
+        <select name="sport">  <!--dropdown menu, email, can also be name, form to ask user for name or email   -->
+            <option disabled selected value="">Sport</option>--> <!-- option with an empty value and disabled, that nobody would be forced to the first option dodgeball and not can choose sport and selected-->
+            {% for sport in sports %} <!-- in templates like jinja you not only have  or , also constructs like sentences, here for loop, Syntax a little bit like python, authors of jinja borrowed the syntax-->
+                <option value="{{ sport }}">{{ sport }}</option> <!--using jinja Syntax to iterate over sports variable, don´t type manually here, but in application.py-->
+                <!--<input name="sport" type="radio" value="{{ sport }}"> {{ sport }} -variable name sport, type radio means radio button, value jinja variable sport, {{ sport }} so that human can see-->
+            {% endfor %} <!--end for loop-->
+            <!--<option value="Dodgeball">Dodgeball</option>  -children called option, children must have values, organe computer would see white human will see >Dodgeball -link what the human should see
+            <option value="Flag Football">Flag Football</option>
+            <option value="Soccer">Soccer</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Ultimate Frisbee">Ultimate Frisbee</option> -> you can change any sport in html file with inspect in the
+            browser and register e.g. for tennis, which you add to the html manually and is not on the server - never ever trust a user
+            -create a List with a Constant at applicaton.py
+            using a library like bootstrap, the forms look much prettier-->
+        </select>
+        <input type="submit" value="Register"> 
+    
+    </form>
+
+{% endblock %}
+
+<!--lets keep thing private, thats why method="post", so that the colleges dont know for what I registering for-->

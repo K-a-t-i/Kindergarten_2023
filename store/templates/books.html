@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>Books</h1>
+    {% for book in books %} <!--for loop with jinja Syntax-->
+        <h2>{{ % book.title %}</h2>
+        <form action="/cart" method="post">
+            <input name="id" type="hidden" value="{{ book.id }}"> <!--hidden: it allows you to submit a piece of data in a form that is visually hidden from the user, each book gets is own id-->
+            <input type="submit" value="Add to Cart"> <!--add a card with submit button, adding a shopping catalog (Verzeichnis) for, like in amazon or bookstore-->
+        </form>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+# requirements.txt is just a simple list of requirements to use
+# There will be commands you will use at the command line to install thoese requirements, it did it in advance
+# command line for installing a python application:
+# pip install -r requirements.txt
+# pip install Flask-Session
+# won´t typically need to do this for the problem set   
+# Required Libraries:
+Flask
+Flask-Session

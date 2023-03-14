@@ -1,0 +1,24 @@
+ <!DOCTYPE html>  <!--commen content of greet/index.html to layout.html-->
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">  <!-- viewport: refers to the rectangular region that defines most of webbrowsers`unser interface 
+                                             content= of meta tag
+                                             width=device-width=kind of magic, this incantation here essentially tells the browser, what 
+                                             ever the width of users device is, assume that that´s the maximum width for the webpage
+                                            library bootstrap makes webpage responsive-->
+        <title>froshims</title>
+    </head>
+    <body>
+        {% block body %}  {% endblock %}   <!-- flask/jinja (language flask use) specific Syntax, it says put a placeholder here, so I can plug in 
+                                            other html in just a bit
+                                            this layout, defines this placeholder, arbitrarily called body, bc 100% content of body is there
+                                            ,plug in actual content of other files
+                                            ,jinja in templates: authors of flask decided for there template feature, they would not reinvent the wheel
+                                            and come up with there own syntax, flask uses s.o. else´s crazy syntax, so there are using
+                                            and , they are just combining one persons language with other, you can 
+                                            plug in other languages as well, if you don´t like jinja... this concept - component based
+                                            design, plug pieces of SW together and have them still interoperate - is pretty common
+                                            and we will add to course´s website links to jinja documentation-->
+    </body>
+</html>

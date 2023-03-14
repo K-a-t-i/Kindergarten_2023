@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html> factor out commeb content of greet/index.html in layout.html-->
+
+<!-- <html lang="en">
+    <head>
+        <title>hello</title>
+    </head>
+    <body> delete all the redundancy-like in index.html, it goes in layout-->
+
+<!-- flask syntax with braces (curly brackets) and percent sign -->
+
+ <!--extends "layout.html" - here come some code, that you should plug into that placeholder 
+                            ,plug in actual content of other files
+ 
+ body block 
+
+    Hello,  first_name  <!--first off those, this is the argument that i am passing to renderd template
+                            , here you plug in values of variables
+    
+ end block  <!--boil index down to its essence, without redundancy 
+                    ,plug in actual content of other files-->
+
+    <!-- hello {{ name }} from application.py, you can tell flasks renderd template function that you plug in here, any variable 
+                     you pass in renderd template function,  here called name -->
+    <!-- </body>
+</html> -->
+
+
+{% extends "layout.html" %}
+
+{% block body %}
+
+    hello, {{ name }}
+
+{% endblock %}

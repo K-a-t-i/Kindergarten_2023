@@ -1,0 +1,63 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>shows</title>
+    </head>
+    <body>
+
+        <input autocomplete="off" autofocus placeholder="Query" type="text"
+
+        <ul></ul> 
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <!--script tag from https://code.jquery.com/-->
+        <script> 
+           
+           let input = document.querySelector("input");
+           input.addEventListener("keyup"), function() {
+               $.get("/search?q=" + input.value, function(shows) {
+                    let html = "";
+                    for (let id in shows)
+                    {
+                        let title = shows[id].title;
+                        html += "<li>" + title + "</li>";
+                    }
+                    document.querySelector("ul").innerHTML = html;
+               });
+           });
+        </script>
+    </body>
+</html>
+
+<!--involving js with jQuery (decreasing in popularity, still used by bootstrap) -->
+<!--add script tag into my own pages head-->
+<!--only one input, that why it works with querySelector-->
+<!--listens for the keyup event, user touching and letting go of the key, when the user does this I wanna call funktion
+what we do in this functon we call another function with $.get("") equals shorhand notation for jQuery.get
+with "search..."dynamically constructing in JavaScript code the URL that I want to requst shows from,  /search?q=, 
+whatever the value of the input box was that the user typed sth into
+how $sign works is it supports what´s called a callback, it is a function that will eventually be called when it has an answer for you
+when we calling from a other server, the browser will not froze while waiting for response, lot nicer when you can say, when you have the data
+call me back, like on the phone, call me back be calling this funktion
+what fucntion do I wanted to call, fuction going to take as an input an argument called shows
+html string that is initally nothing
+for loop letting a variable called ID = whatever ID is in the shows that just came back to me, and now inside of this loop, create a title = shwos, which is
+the date which came back through that call bakc
+what are we doing:
+we've got a simple web page with an unordered list thats currently empty
+below that, we're including this 3rd party JavaScript library called jQuery
+which Bootstrap also happens to use for some of its graphical oomponents
+Than own JavaScript code that first declares a varible thats give me access
+to the input tag on my own webpage, a few lines above
+then using this fancy function dollar sign get to do waht's called an AJAX call
+AJAX refers to the ability for a web page to make  additional http requests programmatically (programmgesteuert) to a server
+it is allowing, this is how all websites today get your chat messages if a friend just messaed you on some platform
+It is how when you are typing in your address, it can autocomplete your address based on the entire globes worth of addresses
+It is how Google search autocoplete works as well
+$.get is a fuction built into jQuery that is using some standard JavaScript functionallity thats going allow me to visit the URL that end with /search?q= what ever the human typed in
+and when the response is ready, this anonymous fuction an argument called shows that is going to equal this stuff (list, array which is in a list of dictionaries or objects with two keys, ID and title
+)
+this happens in javaScript iterating of such a data structure (for loop) 
+html +=... allowing me to create one line after another, another li, another li appending it using concationation to this variable called html
+document.querySe... says to the browser, go select me that ul and plug into its inner html the contents of it, the alue of my variable
+ -->

@@ -1,0 +1,12 @@
+<!--login.html is for having space for the users name, password,
+same form like we used befor for registration, now we use for login-->
+{% extends "layout.html" %} <!--in login.html we extend layout.html -->
+
+{% block body %}
+
+<form action="/login" method="post">  
+    <input autocomplete="off" autofocus name="name" placeholder="Name" type="text"> <!--best practise: don´t want to have username and password being stort in peoples autocomplete history, "name"=users name-->
+    <input type="submit">
+</form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Registrants</h1>
+    <!--create a table with tags: table head (distinguish table head from the body) and table row, th table hading - bold by default, -->
+    <table> 
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Sport</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registrant in registrants %} <!--generate dynamically a whole bunch of TRs - Table rows, insert rows (registrants) in @app.route("/registrants")-->
+            <tr>
+                <td> {{ registrant.name }} </td> <!--table data (1. column), specifically rows=registrans name-->
+                <td> {{ registrant.sport }} </td>  <!--table data (2. column), specifically rows=registrans sports - accessing through the global variable registrants (dictionary in template) by indexing into it via the [name] of the sport-->
+                <td>
+                    <form action="/deregister" method="post">
+                        <input name="id" type="hidden" value="{{ registrant.id }}">
+                        <input type="submit" value="Deregister">
+                    </form>
+                </td>
+            </tr>   <!--output dynamically a table row-->
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
