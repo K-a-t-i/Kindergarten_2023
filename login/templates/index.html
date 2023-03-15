@@ -1,0 +1,15 @@
+<!--copied from login.html-->
+<!--index.html is for having space to say to the user, that he is not logged in-->
+
+{% extends "layout.html" %} <!--in index.html we extend layout.html-->
+
+{% block body %}
+
+{% if session.name %} <!--in jinja syntax use if conditons (also loops,... possible), if session.name from application exists than-->
+    You are logged in as {{ session.name }}. <a href="/logout">Log out</a>.
+{% else %}
+    You are not logged in. <a href="/login">Log in</a> <!--haven´t implemented this feature yet, not like in login with a <form>, here only plain error message-->
+                                                    <!--link is a simple get request, which is the default for links to /login = lead user to Log in page-->
+{% endif %}
+
+{% endblock %}

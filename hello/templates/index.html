@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>hello</title>
+    </head>
+    <body> -->
+        <!-- hello {{ name }} from application.py, you can tell flasks renderd template function that you plug in here, any variable 
+                     you pass in renderd template function,  here called name...same with form, but better, you can proof things
+                    greet template will do the job, what index did before -->
+
+<!--weired flask syntax with braces (curly brackets) and percent sign, plug in actual content of other files, like...--> 
+
+<!-- extends "layout.html"   says hey flask, file index.html essentially inherits from, it extends my default layout 
+                            ;boil index down to its essence, without redundancy 
+                            this layout defines this placeholder, arbitrarily called body
+                            ,plug in actual content of other files
+
+ block body  <!--here come some code, that you should plug into that placeholder 
+                    ,plug in actual content of other files
+
+        <form action="/" method="get"> <!--route name is greet and use get initaly, post is almost the same as get, but instead of putting
+                                                parameters into the URL (e. g. q=cat, name=David), don´t want the typed intput ending 
+                                                up in the URL, no TAB - Enter, no autocomplete, it is still send from browser to server
+                                                but not gonna remembered by the browser in the URL bar
+            <input autocomplete="off" autofocus name="first_name" placeholder="First Name" type="text"> <!-- textfield, humans name = "name", tagname = name, type of this field will be text
+                                            autocomplete without it leaks a little bit of privacy
+                                            autofocus = blinking cursor by default
+                                            placeholder="Name" user see oh ok, you wnat me to type my name     
+            <input type="submit"> <!--Submit Button, Value = what ever the default is
+        </form>
+
+  endblock  boil index down to its essence, without redundancy -->
+    
+    <!-- </body>
+</html>-->
+
+
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <form action="/greet" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <input type="submit">
+    </form>
+
+{% endblock %}
